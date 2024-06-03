@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCQ Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 800px;
+            width: 100%;
+            margin: 20px 0;
+        }
+        .question-block {
+            margin-bottom: 20px;
+        }
+        .question {
+            font-weight: bold;
+        }
+        .options {
+            margin: 20px 0;
+        }
+        .option {
+            margin: 5px;
+            padding: 10px 20px;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .option:hover {
+            background-color: #0056b3;
+        }
+        .correct {
+            background-color: green !important;
+        }
+        .wrong {
+            background-color: red !important;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+        #shuffleBtn {
+            padding: 10px 20px;
+            margin: 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        #shuffleBtn:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <button id="shuffleBtn">Shuffle Questions</button>
+    <div class="container">
+        <h1>MCQ Quiz</h1>
+        <div id="quiz">
+            <!-- Question Block 1 -->
+            <div class="question-block" data-correct="2">
+                <div class="question">1. La regola dell’inderogabilità sancita dall’art.2077 c.c.:</div>
+                <div class="options">
+                    <button class="option" data-answer="0">Ha riguardato solo i contratti collettivi corporativi</button>
+                    <button class="option" data-answer="1">Riguarda pacificamente i contratti collettivi</button>
+                    <button class="option" data-answer="2">È stata applicata in concreto dalla giurisprudenza anche ai contratti collettivi di diritto comune</button>
+                </div>
+            </div>
+            <!-- Question Block 2 -->
+            <div class="question-block" data-correct="1">
+                <div class="question">2. Lo schema del cd. Rinvio esplicito o implicito è utilizzato dalla giurisprudenza per spiegare:</div>
+                <div class="options">
+                    <button class="option" data-answer="0">L'inderogabilità del contratto collettivo da parte del contratto individuale</button>
+                    <button class="option" data-answer="1">L'efficacia del contratto collettivo anche nei confronti dei non iscritti</button>
+                    <button class="option" data-answer="2">La prevalenza del contratto nazionale sul contratto aziendale</button>
+                </div>
+            </div>
+            <!-- Question Block 3 -->
+            <div class="question-block" data-correct="1">
+                <div class="question">3. Nel pubblico impiego privatizzato l’ARAN:</div>
+                <div class="options">
+                    <button class="option" data-answer="0">Rappresenta le PPAA su base volontaristica</button>
+                    <button class="option" data-answer="1">Rappresenta legalmente tutte le PPAA</button>
+                    <button class="option" data-answer="2">Rappresenta i lavoratori di tutti i comparti</button>
+                </div>
+            </div>
+            <!-- Question Block 4 -->
+            <div class="question-block" data-correct="2">
+                <div class="question">4. La teoria del c.d. mandato discendente è stata elaborata:</div>
+                <div class="options">
+                    <button class="option" data-answer="0">Per risolvere il problema dell'efficacia soggettiva</button>
+                    <button class="option" data-answer="1">Per risolvere il problema del rapporto tra contratto collettivo e contratto individuale</button>
+                    <button class="option" data-answer="2">Per risolvere il rapporto del contratto tra contratti collettivi di diverso livello</button>
+                </div>
+            </div>
+            <!-- Question Block 5 -->
+            <div class="question-block" data-correct="0">
+                <div class="question">5. I tetti massimi:</div>
+                <div class="options">
+                    <button class="option" data-answer="0">Sono limiti fissati dalla legge inderogabili in melius dai contratti collettivi</button>
+                    <button class="option" data-answer="1">Sono prescrizioni massime fissate dai contratti collettivi</button>
+                    <button class="option" data-answer="2">Sono indicatori occupazionali</button>
+                </div>
+            </div>
+            <!-- Question Block 6 -->
+<div class="question-block" data-correct="1">
+    <div class="question">6. Nel rapporto tra contratto collettivo e contratto individuale la regola classica dell’inderogabilità unilaterale in peius può essere argomentata:</div>
+    <div class="options">
+        <button class="option" data-answer="0">ai sensi dell'art. 2077 cod. civ.</button>
+        <button class="option" data-answer="1">ai sensi (dell’art. 2077 e) dell'art. 2113 cod. civ.</button>
+        <button class="option" data-answer="2">secondo il principio del favor</button>
+    </div>
+</div>
+<!-- Question Block 7 -->
+<div class="question-block" data-correct="1">
+    <div class="question">7. In caso di successione tra contratto recepito in decreto e contratto di diritto comune:</div>
+    <div class="options">
+        <button class="option" data-answer="0">Prevale sempre il contratto di diritto comune perché si è successione di leggi nel tempo</button>
+        <button class="option" data-answer="1">Prevale il contratto di diritto comune successivo se migliorativo nel suo complesso</button>
+        <button class="option" data-answer="2">Prevale sempre il contratto recepito in decreto in quanto efficacia di legge</button>
+    </div>
+</div>
+<!-- Question Block 8 -->
+<div class="question-block" data-correct="1">
+    <div class="question">8. Il contratto collettivo si interpreta:</div>
+    <div class="options">
+        <button class="option" data-answer="0">Sempre secondo il criterio letterale</button>
+        <button class="option" data-answer="1">Secondo i criteri previsti dagli articoli 1362 c.c. seguenti</button>
+        <button class="option" data-answer="2">Applicando il criterio analogico</button>
+    </div>
+</div>
+<!-- Question Block 9 -->
+<div class="question-block" data-correct="2">
+    <div class="question">9. Per contrattazione collettiva di prossimità si intende:</div>
+    <div class="options">
+        <button class="option" data-answer="0">La contrattazione di livello nazionale</button>
+        <button class="option" data-answer="1">La contrattazione di livello territoriale o provinciale con potestà derogatoria del contratto individuale</button>
+        <button class="option" data-answer="2">La contrattazione di livello aziendale o territoriale cui viene riconosciuto il potere di derogare anche in peIus la legge</button>
+    </div>
+</div>
+<!-- Question Block 10 -->
+<div class="question-block" data-correct="0">
+    <div class="question">10. In caso di contratto collettivo aziendale peggiorativo del contratto collettivo nazionale:</div>
+    <div class="options">
+        <button class="option" data-answer="0">Il contratto nazionale soccombe al contratto aziendale perché meno specifico</button>
+        <button class="option" data-answer="1">Opera la sostituzione delle clausole peggiorative con quelle migliorative</button>
+        <button class="option" data-answer="2">Prevale sempre il contratto collettivo nazionale</button>
+    </div>
+</div>
+<!-- Question Block 11 -->
+<div class="question-block" data-correct="1">
+    <div class="question">11. Il contratto collettivo corporativo:</div>
+    <div class="options">
+        <button class="option" data-answer="0">Efficace nei confronti dei lavoratori iscritti al sindacato stipulante</button>
+        <button class="option" data-answer="1">Efficacia erga omnes</button>
+        <button class="option" data-answer="2">Recepito in decreto</button>
+    </div>
+</div>
+<!-- Question Block 12 -->
+<div class="question-block" data-correct="1">
+    <div class="question">12. La differenza tra RSA ed RSU:</div>
+    <div class="options">
+        <button class="option" data-answer="0">Sono gli organismi rappresentativi che si trovano nelle imprese con meno (RSA) o più (RSU) di 15 dipendenti</button>
+        <button class="option" data-answer="1">La RSA sono terminali associativi del sindacato e le RSU organismi elettivi</button>
+        <button class="option" data-answer="2">Nessuna</button>
+    </div>
+</div>
+<!-- Question Block 13 -->
+<div class="question-block" data-correct="1">
+    <div class="question">13. La Corte Cost. Nella sentenza n.231/2013 ha interpretato il requisito firmatari:</div>
+    <div class="options">
+        <button class="option" data-answer="0">Come sottoscrittori del contratto</button>
+        <button class="option" data-answer="1">Come partecipanti fattivamente alla contrattazione</button>
+        <button class="option" data-answer="2">Come effettivamente rappresentativi</button>
+    </div>
+</div>
+<!-- Question Block 14 -->
+<div class="question-block" data-correct="2">
+    <div class="question">14. Per rappresentatività si intende:</div>
+    <div class="options">
+        <button class="option" data-answer="0">La delega che il lavoratore iscritto conferisce al sindacato</button>
+        <button class="option" data-answer="1">Una caratteristica tipica del sindacato corporativo</button>
+        <button class="option" data-answer="2">La capacità del sindacato di rappresentare/influenzare il maggior numero di lavoratori</button>
+    </div>
+</div>
+<!-- Question Block 15 -->
+<div class="question-block" data-correct="2">
+    <div class="question">15. L’esclusione delle RSA Fiom dalla Fiat deriva:</div>
+    <div class="options">
+        <button class="option" data-answer="0">Dal recesso di Fiat da Confindustria</button>
+        <button class="option" data-answer="1">Dalla disapplicazione del Protocollo del 23 luglio 1993</button>
+        <button class="option" data-answer="2">Dalla mancata firma di Fiom del contratto di Pomigliano</button>
+    </div>
+</div>
+<!-- Question Block 16 -->
+<div class="question-block" data-correct="1">
+    <div class="question">16. In caso di revoca dell’iscrizione al sindacato di elezione, il membro RSU:</div>
+    <div class="options">
+        <button class="option" data-answer="0">Resta in carica</button>
+        <button class="option" data-answer="1">Decade</button>
+        <button class="option" data-answer="2">Deve essere autorizzato ad iscriversi ad un altro sindacato</button>
+    </div>
+</div>
+<!-- Question Block 17 -->
+<div class="question-block" data-correct="0">
+    <div class="question">17. Per ottenere l’efficacia generalizzata del CC aziendale il T.U. del 10 gennaio 2014 prevede che:</div>
+    <div class="options">
+        <button class="option" data-answer="0">Venga sottoscritto dalle RSU a maggioranza</button>
+        <button class="option" data-answer="1">Venga approvato direttamente dai lavoratori</button>
+        <button class="option" data-answer="2">Venga approvato dai sindacati a livello territoriale</button>
+    </div>
+</div>
+<!-- Question Block 18 -->
+<div class="question-block" data-correct="0">
+    <div class="question">18. Quali contratti vincolano la collettività dei lavoratori grazie alla clausola di rinvio inserita nel contratto individuale?</div>
+    <div class="options">
+        <button class="option" data-answer="0">Tutti i contratti</button>
+        <button class="option" data-answer="1">Quelli stipulati dai sindacati comparativamente più rappresentativi</button>
+        <button class="option" data-answer="2">Quelli conclusi da sindacati non aderenti al T.U. 2014</button>
+    </div>
+</div>
+<!-- Question Block 19 -->
+<div class="question-block" data-correct="2">
+    <div class="question">19. Il contratto collettivo può avere una efficacia precedente la sua entrata in vigore?</div>
+    <div class="options">
+        <button class="option" data-answer="0">Anche disponendo dei diritti quesiti</button>
+        <button class="option" data-answer="1">Mai</button>
+        <button class="option" data-answer="2">Sempre</button>
+    </div>
+</div>
+<!-- Question Block 20 -->
+<div class="question-block" data-correct="1">
+    <div class="question">20. Le RSU sono elette nell’ambito di liste:</div>
+    <div class="options">
+        <button class="option" data-answer="0">Presentate dalle confederazioni</button>
+        <button class="option" data-answer="1">Presentata dalle associazioni firmataria del CC nazionale</button>
+        <button class="option" data-answer="2">Presentate da tutti i lavoratori</button>
+    </div>
+</div>
+<!-- Question Block 21 -->
+<div class="question-block" data-correct="1">
+    <div class="question">21. La rappresentatività del 5% ai fini della contrattazione collettiva nazionale:</div>
+    <div class="options">
+        <button class="option" data-answer="0">Determina il diritto di partecipare al tavolo delle trattative</button>
+        <button class="option" data-answer="1">Non garantisce l’ammissione al tavolo delle trattative rimessa al datore di lavoro</button>
+        <button class="option" data-answer="2">Determina l’obbligo a presentare la piattaforma unitaria</button>
+    </div>
+</div>
+<!-- Question Block 22 -->
+<div class="question-block" data-correct="0">
+    <div class="question">22. Lo sciopero:</div>
+    <div class="options">
+        <button class="option" data-answer="0">È un diritto individuale ad esercizio collettivo</button>
+        <button class="option" data-answer="1">È un diritto collettivo</button>
+        <button class="option" data-answer="2">È un diritto pubblico</button>
+    </div>
+</div>
+<!-- Question Block 23 -->
+<div class="question-block" data-correct="0">
+    <div class="question">23. Quando è consentito lo sciopero per fini non contrattuali (c.d. “sciopero politico”)?</div>
+    <div class="options">
+        <button class="option" data-answer="0">È consentito, salvo che sia diretto a sovvertire l’ordine democratico</button>
+        <button class="option" data-answer="1">È sempre consentito</button>
+        <button class="option" data-answer="2">Non è mai consentito</button>
+    </div>
+</div>
+<!-- Question Block 24 -->
+<div class="question-block" data-correct="0">
+    <div class="question">24. La trattativa diretta con i lavoratori, con “scavalcamento” del sindacato presente in azienda:</div>
+    <div class="options">
+        <button class="option" data-answer="0">Costituisce condotta antisindacale</button>
+        <button class="option" data-answer="1">È espressamente vietata</button>
+        <button class="option" data-answer="2">Non costituisce condotta antisindacale</button>
+    </div>
+</div>
+<!-- Question Block 25 -->
+<div class="question-block" data-correct="1">
+    <div class="question">25. Per contrattazione collettività di prossimità si intende:</div>
+    <div class="options">
+        <button class="option" data-answer="0">La contrattazione di livello territoriale o provinciale con potestà derogatoria del contratto individuale</button>
+        <button class="option" data-answer="1">La contrattazione a livello aziendale o territoriale cui viene riconosciuto il potere di derogare anche in peius la legge</button>
+        <button class="option" data-answer="2">La contrattazione di livello provinciale conclusa da sindacati nazionali</button>
+    </div>
+</div>
+<!-- Question Block 26 -->
+<div class="question-block" data-correct="1">
+    <div class="question">26. La c.d. deregolazione:</div>
+    <div class="options">
+        <button class="option" data-answer="0">È un modello tra contratto collettivo e contratto individuale</button>
+        <button class="option" data-answer="1">È un modello di rapporto tra legge e contratto collettivo</button>
+        <button class="option" data-answer="2">È un modello di rapporto tra cc nazionale e contratto cc aziendale</button>
+    </div>
+</div>
+<!-- Question Block 27 -->
+<div class="question-block" data-correct="1">
+    <div class="question">27. La libertà sindacale di cui all'art. 39 Cost.</div>
+    <div class="options">
+        <button class="option" data-answer="0">è tutelata dall'art. 40 Cost.</button>
+        <button class="option" data-answer="1">implica, tra l'altro, una libertà organizzativa e di azione del sindacato</button>
+        <button class="option" data-answer="2">Consiste esclusivamente nella libertà per il singolo di costituire un sindacato</button>
+    </div>
+</div>
+<!-- Question Block 28 -->
+<div class="question-block" data-correct="1">
+    <div class="question">28. Il diritto di svolgere opera di proselitismo di cui all'art. 26 Stat. lav.</div>
+    <div class="options">
+        <button class="option" data-answer="0">è inserito nel titolo II dello Statuto dei lavoratori ed è riconosciuto a tutte le OO.SS. dei lavoratori</button>
+        <button class="option" data-answer="1">è soggetto al limite del rispetto del normale svolgimento dell'attività aziendale</button>
+        <button class="option" data-answer="2">è inserito nel titolo III dello Statuto dei lavoratori ed è, quindi, riconosciuto solo alle OO.SS. rappresentative</button>
+    </div>
+</div>
+<!-- Question Block 29 -->
+<div class="question-block" data-correct="1">
+    <div class="question">29. Il dirigente sindacale</div>
+    <div class="options">
+        <button class="option" data-answer="0">può essere trasferito liberamente dall'unità produttiva nella quale esercita le sue funzioni</button>
+        <button class="option" data-answer="1">può essere trasferito dall'unità produttiva nella quale esercita le sue funzioni previo nulla osta</button>
+        <button class="option" data-answer="2">non può mai essere trasferito dall'unità produttiva nella quale esercita le sue funzioni</button>
+    </div>
+</div>
+<!-- Question Block 30 -->
+<div class="question-block" data-correct="2">
+    <div class="question">30. L'art. 28 Stat. lav.</div>
+    <div class="options">
+        <button class="option" data-answer="0">tutela solo le condotte omissive</button>
+        <button class="option" data-answer="1">tutela esclusivamente la libertà sindacale e il diritto di sciopero</button>
+        <button class="option" data-answer="2">tutela anche le condotte omissive</button>
+    </div>
+</div>
+<!-- Question Block 31 -->
+<div class="question-block" data-correct="1">
+    <div class="question">31. Le RSA, ai sensi del TU sulla rappresentanza del 2014,</div>
+    <div class="options">
+        <button class="option" data-answer="0">Possono stipulare contratti aziendali con efficacia erga omnes se approvato dalla maggioranza delle sue componenti</button>
+        <button class="option" data-answer="1">Possono stipulare contratti aziendali con efficacia erga omnes, purché siano costituite nell'ambito di organizzazioni sindacali che nell'unità produttiva registrano la maggioranza di associati rispetto al numero complessivo dei lavoratori sindacalizzati e non venga chiesto un referendum sul contratto entro 10 gg. dalla sua approvazione.</button>
+        <button class="option" data-answer="2">Non possono stipulare contratti aziendali</button>
+    </div>
+</div>
+<!-- Question Block 32 -->
+<div class="question-block" data-correct="0">
+    <div class="question">32. La forma del CCNL</div>
+    <div class="options">
+        <button class="option" data-answer="0">è libera</button>
+        <button class="option" data-answer="1">è scritta ad substantiam</button>
+        <button class="option" data-answer="2">è scritta ad probationem</button>
+    </div>
+</div>
+<!-- Question Block 33 -->
+<div class="question-block" data-correct="0">
+    <div class="question">33. La clausola di pace sindacale</div>
+    <div class="options">
+        <button class="option" data-answer="0">limitano il diritto di sciopero, ma nell'attuale sistema di relazioni sindacali hanno efficacia soltanto nei confronti dei sindacati stipulanti il CCNL, non per i lavoratori</button>
+        <button class="option" data-answer="1">è contenuta nella parte normativa del CCNL</button>
+        <button class="option" data-answer="2">limitano il diritto di sciopero, ma hanno efficacia soltanto nei confronti dei lavoratori</button>
+    </div>
+</div>
+<!-- Question Block 34 -->
+<div class="question-block" data-correct="1">
+    <div class="question">34. Nel rapporto tra CCNL e contratto aziendale</div>
+    <div class="options">
+        <button class="option" data-answer="0">Prevale il contratto stipulato per ultimo nel tempo</button>
+        <button class="option" data-answer="1">Diversi accordi interconfederali recenti hanno disciplinato la materia, disponendo che I contratti collettivi aziendali possono definire specifiche intese modificative delle regolamentazioni contenute nei contratti collettivi nazionali di lavoro nei limiti e con le procedure previsti da questi ultimi</button>
+        <button class="option" data-answer="2">Prevale, per gerarchia, il CCNL</button>
+    </div>
+</div>
+<!-- Question Block 35 -->
+<div class="question-block" data-correct="2">
+    <div class="question">35. Lo sciopero politico</div>
+    <div class="options">
+        <button class="option" data-answer="0">è un reato</button>
+        <button class="option" data-answer="1">è un diritto</button>
+        <button class="option" data-answer="2">è una libertà</button>
+    </div>
+</div>
+<!-- Question Block 36 -->
+<div class="question-block" data-correct="0">
+    <div class="question">36. Lo sciopero diretto a impedire o ostacolare il libero esercizio delle libertà democratiche</div>
+    <div class="options">
+        <button class="option" data-answer="0">è un reato</button>
+        <button class="option" data-answer="1">è un diritto</button>
+        <button class="option" data-answer="2">è una libertà</button>
+    </div>
+</div>
+<!-- Question Block 37 -->
+<div class="question-block" data-correct="0">
+    <div class="question">37. Il crumiraggio indiretto</div>
+    <div class="options">
+        <button class="option" data-answer="0">se interno, è lecito nel rispetto dell'art. 2103 c.c.</button>
+        <button class="option" data-answer="1">è vietato perché mira a ostacolare l'esercizio del diritto di sciopero</button>
+        <button class="option" data-answer="2">è sempre lecito</button>
+    </div>
+</div>
+<!-- Question Block 38 -->
+<div class="question-block" data-correct="0">
+    <div class="question">38. Il diritto di serrata</div>
+    <div class="options">
+        <button class="option" data-answer="0">non è contemplato nell’ordinamento italiano</button>
+        <button class="option" data-answer="1">è tutelato dall’art. 41 Cost.</button>
+        <button class="option" data-answer="2">è tutelato dall’art. 40 Cost.</button>
+    </div>
+</div>
+<!-- Question Block 39 -->
+<div class="question-block" data-correct="1">
+    <div class="question">39. I militari</div>
+    <div class="options">
+        <button class="option" data-answer="0">Possono scioperare ma non possono costituire organizzazioni sindacali</button>
+        <button class="option" data-answer="1">Possono costituire, come gli appartenenti alla Polizia di Stato, organizzazioni sindacali di categoria ma non possono scioperare</button>
+        <button class="option" data-answer="2">Godono di piena libertà sindacale e possono scioperare</button>
+    </div>
+</div>
+<!-- Question Block 40 -->
+<div class="question-block" data-correct="1">
+    <div class="question">40. Il CCNL</div>
+    <div class="options">
+        <button class="option" data-answer="0">Dura 6 anni, 3 (parte normativa) + 3 (parte economica)</button>
+        <button class="option" data-answer="1">ha una durata triennale (parte normativa e parte economica)</button>
+        <button class="option" data-answer="2">ha una durata di 4 anni (parte normativa) e due anni (parte economica)</button>
+    </div>
+</div>
+<!-- Question Block 41 -->
+<div class="question-block" data-correct="0">
+    <div class="question">41. Nello sciopero nei servizi pubblici essenziali</div>
+    <div class="options">
+        <button class="option" data-answer="0">I soggetti che proclamano lo sciopero, oltre al preavviso, sono tenuti a comunicare per iscritto, durata, modalità di attuazione e motivazioni</button>
+        <button class="option" data-answer="1">Le amministrazioni o imprese erogatrici sono tenute a dare comunicazione agli utenti dello sciopero almeno 10 giorni prima del suo inizio</button>
+        <button class="option" data-answer="2">I soggetti che proclamano lo sciopero sono tenuti a dare solo il preavviso</button>
+    </div>
+</div>
+<!-- Question Block 42 -->
+<div class="question-block" data-correct="0">
+    <div class="question">42. Come è il contratto collettivo rispetto all’individuale?</div>
+    <div class="options">
+        <button class="option" data-answer="0">Inderogabile</button>
+        <button class="option" data-answer="1">Facoltativo</button>
+        <button class="option" data-answer="2">Modificabile</button>
+    </div>
+</div>
+<!-- Question Block 43 -->
+<div class="question-block" data-correct="0">
+    <div class="question">43. Referendum giugno 95 ha modificato l’art. 19:</div>
+    <div class="options">
+        <button class="option" data-answer="2">Modificando solo la lettera B</button>
+        <button class="option" data-answer="1">Aggiungendo nuove disposizioni</button>
+        <button class="option" data-answer="0">Abrogando gli aggettivi provinciali e regionali della lettera B e la lettera A</button>
+    </div>
+</div>
+<!-- Question Block 44 -->
+<div class="question-block" data-correct="0">
+    <div class="question">44. Per contratto collettivo separato si intende:</div>
+    <div class="options">
+        <button class="option" data-answer="2">Un contratto collettivo non ufficiale</button>
+        <button class="option" data-answer="1">Un contratto collettivo firmato da tutte le sigle sindacali</button>
+        <button class="option" data-answer="0">Il contratto collettivo sottoscritto da alcune sigle sindacali col dissenso di altre</button>
+    </div>
+</div>
+<!-- Question Block 45 -->
+<div class="question-block" data-correct="1">
+    <div class="question">45. I contratti di solidarietà sono:</div>
+    <div class="options">
+        <button class="option" data-answer="0">Contratti individuali tra datore e dipendente</button>
+        <button class="option" data-answer="1">Contratti collettivi aziendali mediante i quali si effettua una riduzione dell’orario di lavoro (con perdita della retribuzione) dei lavoratori nell’impresa per evitare licenziamenti o promuoverne l’occupazione</button>
+        <button class="option" data-answer="2">Contratti tra diverse aziende</button>
+    </div>
+</div>
+<!-- Question Block 46 -->
+<div class="question-block" data-correct="1">
+    <div class="question">46. Le RSU:</div>
+    <div class="options">
+        <button class="option" data-answer="0">Sono nominate dal datore di lavoro</button>
+        <button class="option" data-answer="1">Sono elette da tutti i lavoratori dell’azienda</button>
+        <button class="option" data-answer="2">Sono scelte tra i dirigenti</button>
+    </div>
+</div>
+<!-- Question Block 47 -->
+<div class="question-block" data-correct="2">
+    <div class="question">47. A causa dell’inattuazione dell’art. 39 Cost. oggi:</div>
+    <div class="options">
+        <button class="option" data-answer="0">I sindacati sono enti pubblici</button>
+        <button class="option" data-answer="1">I sindacati hanno poteri legislativi</button>
+        <button class="option" data-answer="2">I sindacati sono associazioni non riconosciute</button>
+    </div>
+</div>
+<!-- Question Block 48 -->
+<div class="question-block" data-correct="1">
+    <div class="question">48. Secondo il modello deregolativo c.d. “controllato”:</div>
+    <div class="options">
+        <button class="option" data-answer="0">La legge non può mai essere derogata</button>
+        <button class="option" data-answer="1">La legge può essere derogata solo dal contratto collettivo</button>
+        <button class="option" data-answer="2">La legge può essere derogata da qualsiasi contratto</button>
+    </div>
+</div>
+<!-- Question Block 49 -->
+<div class="question-block" data-correct="2">
+    <div class="question">49. Le clausole del contratto individuale difformi dal contratto collettivo sono:</div>
+    <div class="options">
+        <button class="option" data-answer="0">Validi se approvati da entrambe le parti</button>
+        <button class="option" data-answer="1">Modificabili dal datore di lavoro</button>
+        <button class="option" data-answer="2">Nulle e sostituite di diritto da quelle del contratto collettivo</button>
+    </div>
+</div>
+<!-- Question Block 50 -->
+<div class="question-block" data-correct="2">
+    <div class="question">50. Nell’ordinamento italiano la “Deregulation”:</div>
+    <div class="options">
+        <button class="option" data-answer="0">Vieta qualsiasi forma di derogazione</button>
+        <button class="option" data-answer="1">Consente deroghe solo se migliorative</button>
+        <button class="option" data-answer="2">Consente al contratto collettivo di derogare in peius alla legge, quando espressamente previsto</button>
+    </div>
+</div>
+<!-- Question Block 51 -->
+<div class="question-block" data-correct="2">
+    <div class="question">51. Nel settore del Pubblico Impiego i sindacati hanno accesso alla trattativa nazionale se:</div>
+    <div class="options">
+        <button class="option" data-answer="0">Raggiungono almeno il 10% dei lavoratori</button>
+        <button class="option" data-answer="1">Hanno l'approvazione del datore di lavoro</button>
+        <button class="option" data-answer="2">Superano il 5% come media tra dato associativo e dato elettorale</button>
+    </div>
+</div>
+<!-- Question Block 52 -->
+<div class="question-block" data-correct="2">
+    <div class="question">52. Nella successione di contratti collettivi dello stesso livello si applica:</div>
+    <div class="options">
+        <button class="option" data-answer="0">il criterio della priorità nel tempo</button>
+        <button class="option" data-answer="1">il criterio dell'equità</button>
+        <button class="option" data-answer="2">il criterio della posteriorità nel tempo</button>
+    </div>
+</div>
+<!-- Question Block 2.11 -->
+<div class="question-block" data-correct="1">
+    <div class="question">La disciplina dell'appalto (lecito) prevede:</div>
+    <div class="options">
+        <button class="option" data-answer="0">solo la parità di trattamento tra i lavoratori appaltati e i dipendenti del committente</button>
+        <button class="option" data-answer="1">solo la responsabilità solidale tra committente e appaltatore</button>
+        <button class="option" data-answer="2">la responsabilità solidale tra committente e appaltatore e la parità di trattamento tra i lavoratori appaltati e i dipendenti del committente</button>
+    </div>
+</div>
+
+<!-- Question Block 2.12 -->
+<div class="question-block" data-correct="2">
+    <div class="question">La recidiva:</div>
+    <div class="options">
+        <button class="option" data-answer="0">deve essere contestata se concorre a integrare un'infrazione commessa da più di 2 anni</button>
+        <button class="option" data-answer="1">non va mai contestata</button>
+        <button class="option" data-answer="2">se è assunta quale criterio di determinazione dell'entità della sanzione non è obbligatoria la contestazione</button>
+    </div>
+</div>
+
+<!-- Question Block 2.13 -->
+<div class="question-block" data-correct="1">
+    <div class="question">Il divieto di interposizione di manodopera:</div>
+    <div class="options">
+        <button class="option" data-answer="0">è stato solo formalmente abrogato dal legislatore nel 2003</button>
+        <button class="option" data-answer="1">è ormai formalmente e sostanzialmente insussistente</button>
+        <button class="option" data-answer="2">non è mai esistito nel nostro ordinamento</button>
+    </div>
+</div>
+
+<!-- Question Block 2.14 -->
+<div class="question-block" data-correct="1">
+    <div class="question">Il trasferimento del lavoratore:</div>
+    <div class="options">
+        <button class="option" data-answer="0">è ammesso senza limiti, purché vi siano le comprovate ragioni tecniche, organizzative e produttive</button>
+        <button class="option" data-answer="1">può avvenire in seguito a comportamenti del lavoratore che siano causa di disorganizzazione aziendale, integrando una ragione oggettiva di trasferimento</button>
+        <button class="option" data-answer="2">è ammesso solo se interno</button>
+    </div>
+</div>
+
+
+<!-- Question Block 2.1 -->
+<div class="question-block" data-correct="0">
+    <div class="question">2.1 Il termine di 5 giorni previsto dall’art 7 St. Lav:</div>
+    <div class="options">
+        <button class="option" data-answer="0">È un termine a difesa e deve trascorrere COMPLETAMENTE prima dell’applicazione della sanzione</button>
+        <button class="option" data-answer="1">È un termine dilatorio, non perentorio</button>
+        <button class="option" data-answer="2">È applicato solo nel pubblico impiego</button>
+    </div>
+</div>
+<!-- Question Block 2.2 -->
+<div class="question-block" data-correct="0">
+    <div class="question">2.2 La percentuale di lavoratori che possono essere assunti facendo ricorso alla somministrazione a tempo indeterminato (nel d.lgs. n. 81/2015) è:</div>
+    <div class="options">
+        <button class="option" data-answer="0">Del 20%</button>
+        <button class="option" data-answer="1">Del 10%</button>
+        <button class="option" data-answer="2">Non è prevista dalla legge, ma dai contratti collettivi</button>
+    </div>
+</div>
+<!-- Question Block 2.3 -->
+<div class="question-block" data-correct="2">
+    <div class="question">2.3 La forma scritta del contratto di lavoro:</div>
+    <div class="options">
+        <button class="option" data-answer="0">È richiesta solo in alcuni casi, ma sempre ad substantiam</button>
+        <button class="option" data-answer="1">È sempre richiesta dal legislatore</button>
+        <button class="option" data-answer="2">È richiesta dal legislatore in alcuni casi, talora ab substantiam talaltra ad probationem</button>
+    </div>
+</div>
+<!-- Question Block 2.4 -->
+<div class="question-block" data-correct="1">
+    <div class="question">2.4 Il distacco è legittimo se:</div>
+    <div class="options">
+        <button class="option" data-answer="0">Sussiste un interesse oggettivo del distaccatario</button>
+        <button class="option" data-answer="1">Sussiste un interesse oggettivo del distaccante (= datore di lavoro)</button>
+        <button class="option" data-answer="2">È giustificato da comprovate esigenze organizzative, tecniche e produttive</button>
+    </div>
+</div>
+<!-- Question Block 2.5 -->
+<div class="question-block" data-correct="1">
+    <div class="question">2.5 Il giustificato motivo soggettivo differisce dalla giusta causa:</div>
+    <div class="options">
+        <button class="option" data-answer="0">in senso qualitativo (tipo di condotta rilevante)</button>
+        <button class="option" data-answer="1">in senso qualitativo e quantitativo</button>
+        <button class="option" data-answer="2">in senso quantitativo (grado di gravità della condotta)</button>
+    </div>
+</div>
+<!-- Question Block 2.6 -->
+<div class="question-block" data-correct="2">
+    <div class="question">2.6 Il licenziamento è inefficace:</div>
+    <div class="options">
+        <button class="option" data-answer="0">Se discriminatorio</button>
+        <button class="option" data-answer="1">Quando è senza presupposto giustificativo</button>
+        <button class="option" data-answer="2">Per vizi di forma</button>
+    </div>
+</div>
+<!-- Question Block 2.7 -->
+<div class="question-block" data-correct="2">
+    <div class="question">2.7 Nel d.lgs. n.23/2015(contratto a tutele crescenti) la reintegra con indennità limitata alle 12 mensilità:</div>
+    <div class="options">
+        <button class="option" data-answer="0">Si applica quando il licenziamento è intimato in forma orale</button>
+        <button class="option" data-answer="1">Si applica quando il licenziamento è illegittimo perché sproporzionato</button>
+        <button class="option" data-answer="2">Si applica quando in giudizio sia stata dimostrata l’insussistenza del fatto materiale contestato al lavoratore</button>
+    </div>
+</div>
+<!-- Question Block 2.8 -->
+<div class="question-block" data-correct="1">
+    <div class="question">2.8 Il lavoratore a tempo determinato ha diritto:</div>
+    <div class="options">
+        <button class="option" data-answer="0">Ad un trattamento proporzionato e sufficiente</button>
+        <button class="option" data-answer="1">Alla parità di trattamento con il lavoratore a tempo indeterminato “comparabile”</button>
+        <button class="option" data-answer="2">Alla parità di trattamento con gli altri lavoratori a termine nell'impresa</button>
+    </div>
+</div>
+<!-- Question Block 2.9 -->
+<div class="question-block" data-correct="1">
+    <div class="question">2.9 Il recesso dal rapporto in prova:</div>
+    <div class="options">
+        <button class="option" data-answer="0">È libero ma solo per il lavoratore</button>
+        <button class="option" data-answer="1">Non richiede giustificazione e preavviso</button>
+        <button class="option" data-answer="2">È libero ma solo dopo sei mesi</button>
+    </div>
+</div>
+<!-- Question Block 2.10 -->
+<div class="question-block" data-correct="0">
+    <div class="question">2.10 Il lavoro agile:</div>
+    <div class="options">
+        <button class="option" data-answer="0">È lavoro subordinato</button>
+        <button class="option" data-answer="1">È lavoro parasubordinato</button>
+        <button class="option" data-answer="2">È lavoro autonomo</button>
+    </div>
+</div>
+<!-- Question Block 2.11 -->
+<div class="question-block" data-correct="2">
+    <div class="question">2.11 Il potere di controllo nella somministrazione:</div>
+    <div class="options">
+        <button class="option" data-answer="0">È esercitato dall'agenzia di somministrazione</button>
+        <button class="option" data-answer="1">È esercitato dall'agenzia di somministrazione su segnalazione dell'utilizzatore</button>
+        <button class="option" data-answer="2">È esercitato dall’utilizzatore</button>
+    </div>
+</div>
+<!-- Question Block 2.12 -->
+<div class="question-block" data-correct="2">
+    <div class="question">2.12 Il potere disciplinare nella somministrazione di manodopera:</div>
+    <div class="options">
+        <button class="option" data-answer="0">È esercitato dall'agenzia di somministrazione</button>
+        <button class="option" data-answer="1">È esercitato dall'utilizzatore</button>
+        <button class="option" data-answer="2">È esercitato dall’agenzia di somministrazione su segnalazione dell’utilizzatore</button>
+    </div>
+</div>
+<!-- Question Block 2.13 -->
+<div class="question-block" data-correct="1">
+    <div class="question">2.13 La somministrazione a tempo indeterminato è ammessa:</div>
+    <div class="options">
+        <button class="option" data-answer="0">Negli stessi casi in cui è ammessa & la somministrazione a tempo determinato</button>
+        <button class="option" data-answer="1">In ogni caso, salvo il rispetto dei requisiti (formali e quantitativi) richiesti dalla legge</button>
+        <button class="option" data-answer="2">Solo in casi tassativi previsti dalla legge</button>
+    </div>
+</div>
+<!-- Question Block 2.14 -->
+<div class="question-block" data-correct="1">
+    <div class="question">2.14 Il trasferimento del lavoratore all’esterno dell’unità produttiva:</div>
+    <div class="options">
+        <button class="option" data-answer="0">Non deve essere giustificato se non comporta uno spostamento a più di 50 Km</button>
+        <button class="option" data-answer="1">Deve essere giustificato ma non necessariamente motivato per iscritto al lavoratore</button>
+        <button class="option" data-answer="2">Deve essere giustificato e motivato per iscritto</button>
+    </div>
+</div>
+<!-- Question Block 2.15 -->
+<div class="question-block" data-correct="2">
+    <div class="question">2.15 L'equivalenza delle mansioni di cui al vecchio art. 2103 c.c. si misurava con riferimento:</div>
+    <div class="options">
+        <button class="option" data-answer="0">Alla conservazione della retribuzione</button>
+        <button class="option" data-answer="1">Alla conservazione dell'orario di lavoro</button>
+        <button class="option" data-answer="2">Alla conservazione della retribuzione in senso statico e della professionalità in senso dinamico</button>
+    </div>
+</div>
+<!-- Question Block 2.16 -->
+<div class="question-block" data-correct="2">
+    <div class="question">2.16 L’apposizione del termine al contratto di lavoro:</div>
+    <div class="options">
+        <button class="option" data-answer="0">È sempre ammessa</button>
+        <button class="option" data-answer="1">È ammessa solo per attività di carattere stagionale</button>
+        <button class="option" data-answer="2">È ammessa solo nei limiti di una durata di 36 mesi (e con il rispetto della percentuale del 20% riferita all'organico d'impresa) 24*</button>
+    </div>
+</div>
+<!-- Question Block 2.17 -->
+<div class="question-block" data-correct="1">
+    <div class="question">2.17 Nel contratto a tempo determinato, il recesso ante tempus è consentito:</div>
+    <div class="options">
+        <button class="option" data-answer="0">Per giusta causa e giustificato motivo</button>
+        <button class="option" data-answer="1">Solo per giusta causa</button>
+        <button class="option" data-answer="2">Solo con preavviso</button>
+    </div>
+</div>
+<!-- Question Block 2.18 -->
+<div class="question-block" data-correct="2">
+    <div class="question">2.18 Un’impresa si articola in due unità produttive: una a Torino con 12 dipendenti, l’altra a Milano con 49 dipendenti. Si applica:</div>
+    <div class="options">
+        <button class="option" data-answer="0">in entrambe la tutela obbligatoria</button>
+        <button class="option" data-answer="1">a Torino la tutela obbligatoria e a Milano l'art. 18 St. lav</button>
+        <button class="option" data-answer="2">in entrambe la tutela reale</button>
+    </div>
+</div>
+<!-- Question Block 2.19 -->
+<div class="question-block" data-correct="2">
+    <div class="question">2.19 La capacità giuridica speciale è:</div>
+    <div class="options">
+        <button class="option" data-answer="0">La capacità per un minore di sottoscrivere il contratto di lavoro</button>
+        <button class="option" data-answer="1">La capacità per un minore di esercitare le azioni che derivano da un rapporto di lavoro</button>
+        <button class="option" data-answer="2">La capacità per un minore di essere parte di un rapporto di lavoro</button>
+    </div>
+</div>
+<!-- Question Block 2.20 -->
+<div class="question-block" data-correct="1">
+    <div class="question">2.20 Il patto di prova:</div>
+    <div class="options">
+        <button class="option" data-answer="0">Richiede la forma scritta ad probationem</button>
+        <button class="option" data-answer="1">Richiede la forma scritta ad substantiam</button>
+        <button class="option" data-answer="2">Se contestuale l'assunzione può essere stipulato anche in forma orale</button>
+    </div>
+</div>
+<!-- Question Block 2.21 -->
+<div class="question-block" data-correct="2">
+    <div class="question">2.21 Nella lettera di licenziamento:</div>
+    <div class="options">
+        <button class="option" data-answer="0">Devono essere indicati i motivi ma solo se il licenziamento intimato dal datore soggetto alla disciplina di cui all'articolo 18 St. Lav.</button>
+        <button class="option" data-answer="1">Non devono essere indicati i motivi ma il lavoratore li può richiedere</button>
+        <button class="option" data-answer="2">Con l'intimazione del licenziamento devono essere indicati i motivi</button>
+    </div>
+</div>
+<!-- Question Block 2.22 -->
+<div class="question-block" data-correct="0">
+    <div class="question">2.22 Dopo la cd. riforma Fornero, la tutela di reintegra piena o classica ai sensi dell’art.18 St. trova applicazione:</div>
+    <div class="options">
+        <button class="option" data-answer="0">Se il licenziamento discriminatorio</button>
+        <button class="option" data-answer="1">Se il licenziamento è disciplinare e ingiustificato</button>
+        <button class="option" data-answer="2">Se il licenziamento è economico e vi è la manifesta insussistenza del motivo</button>
+    </div>
+</div>
+<!-- Question Block 2.23 -->
+<div class="question-block" data-correct="1">
+    <div class="question">2.23 L’adibizione a mansioni superiori diviene definitiva:</div>
+    <div class="options">
+        <button class="option" data-answer="0">Sempre dopo tre mesi</button>
+        <button class="option" data-answer="1">Se protratta continuativamente per il periodo fissato dal contratto collettivo, o, in mancanza dopo sei mesi continuativi</button>
+        <button class="option" data-answer="2">Dopo tre mesi e solo nel settore dell'impiego pubblico</button>
+    </div>
+</div>
+<!-- Question Block 2.24 -->
+<div class="question-block" data-correct="2">
+    <div class="question">2.24 Le assunzioni successive a tempo determinato(rinnovo):</div>
+    <div class="options">
+        <button class="option" data-answer="0">Sono consentite ma esigono la parità di mansioni</button>
+        <button class="option" data-answer="1">Sono consentite ma solo se il contratto a termine non è mai stato prorogato</button>
+        <button class="option" data-answer="2">Sono consentite nel rispetto di determinati intervalli tra una stipulazione e l'altra (rispetto delle causali)</button>
+    </div>
+</div>
+<!-- Question Block 2.25 -->
+<div class="question-block" data-correct="0">
+    <div class="question">2.25 La tutela indennitaria (da 12 a 24 mensilità) sostitutiva della tutela reintegratoria è prevista dall'articolo 18 (come modificato dalla riforma fornero):</div>
+    <div class="options">
+        <button class="option" data-answer="0">Quando licenziamento è illegittimo, ma il fatto materiale dell'inadempimento del lavoratore sussiste e il contratto collettivo non lo prevede come passibile di sanzione conservativa.</button>
+        <button class="option" data-answer="1">Quando il lavoratore abbia esercitato la relativa “opzione”</button>
+        <button class="option" data-answer="2">Quando vi siano solo vizi di forma</button>
+    </div>
+</div>
+<!-- Question Block 2.26 -->
+<div class="question-block" data-correct="0">
+    <div class="question">2.26 La tutela obbligatoria ai sensi dell’art.8, l.604/1996 si applica:</div>
+    <div class="options">
+        <button class="option" data-answer="0">Alle imprese con meno di 60 dipendenti</button>
+        <button class="option" data-answer="1">Alle unità produttive con più di 15 dipendenti</button>
+        <button class="option" data-answer="2">Alle imprese con più di 60 dipendenti</button>
+    </div>
+</div>
+<!-- Question Block 2.27 -->
+<div class="question-block" data-correct="2">
+    <div class="question">2.27 Il tetto dei 24 mesi imposto al complessivo rapporto a termine tra gli stessi soggetti si applica:</div>
+    <div class="options">
+        <button class="option" data-answer="0">Sono in ipotesi di successive stipulazioni a termine tra due stessi soggetti</button>
+        <button class="option" data-answer="1">Solo un'ipotesi di successive proroghe e/o prosecuzione di fatto del contratto a termine tra due stessi soggetti</button>
+        <button class="option" data-answer="2">In tutte le ipotesi di rapporto a termine tra due stessi soggetti (proroghe, prosecuzioni di fatto, assunzioni, periodi di somministrazione intercalati a contratti a termine)</button>
+    </div>
+</div>
+<!-- Question Block 2.28 -->
+<div class="question-block" data-correct="1">
+    <div class="question">2.28 Il nuovo art.2103 c.c.</div>
+    <div class="options">
+        <button class="option" data-answer="0">Conferma il limite della mansione equivalente</button>
+        <button class="option" data-answer="1">Consente in certi casi la divisione del lavoratore a mansioni appartenenti al livello inferiore, purché rientranti nella medesima categoria legale e fermo il rispetto del livello formale di inquadramento</button>
+        <button class="option" data-answer="2">Consente ai contratti collettivi di individuare ipotesi di adibizione del lavoratore a mansioni della categoria legale inferiore (SOLO IL PATTO DI DEMANSIONAMENTO può farlo)</button>
+    </div>
+</div>
+<!-- Question Block 2.29 -->
+<div class="question-block" data-correct="2">
+    <div class="question">2.29 Il regime previsto dall’art.2126 c.c. (prestazioni di fatto):</div>
+    <div class="options">
+        <button class="option" data-answer="0">Opera solo in caso di illiceità dell'oggetto del contratto di lavoro (MANCA LA CAUSA)</button>
+        <button class="option" data-answer="1">Prevede la costituzione del rapporto anche in caso di contratto invalido (IMPRECISO)</button>
+        <button class="option" data-answer="2">Opera solo retrospettivamente</button>
+    </div>
+</div>
+<!-- Question Block 2.30 -->
+<div class="question-block" data-correct="2">
+    <div class="question">2.30 Per pubblicità del codice disciplinare si intende:</div>
+    <div class="options">
+        <button class="option" data-answer="0">Comunicazione al lavoratore</button>
+        <button class="option" data-answer="1">Necessità della consegna al lavoratore dell'intero testo del contratto collettivo</button>
+        <button class="option" data-answer="2">Affissione in un luogo accessibile a tutti all'interno del luogo di lavoro</button>
+    </div>
+</div>
+<!-- Question Block 2.31 -->
+<div class="question-block" data-correct="1">
+    <div class="question">2.31 Oggi è possibile stipulare un contratto di co.co.co.</div>
+    <div class="options">
+        <button class="option" data-answer="0">Solo con la specificazione per iscritto di un programma o progetto di lavoro</button>
+        <button class="option" data-answer="1">Liberamente, ma con il rispetto della disciplina del lavoro subordinato se le modalità di esecuzione delle prestazioni di lavoro sono organizzate dal committente anche con riferimento ai tempi e al luogo di lavoro [elimanta dal 2019](etero-organizzazione)</button>
+        <button class="option" data-answer="2">Liberamente, ma con il rispetto della disciplina del lavoro subordinato</button>
+    </div>
+</div>
+<!-- Question Block 2.32 -->
+<div class="question-block" data-correct="1">
+    <div class="question">2.32 La disciplina del contratto di lavoro a tutele crescenti (Jobs Act) si applica:</div>
+    <div class="options">
+        <button class="option" data-answer="0">Ai lavoratori subordinati e parasubordinati assunti dopo il 7 marzo 2015</button>
+        <button class="option" data-answer="1">Ai lavoratori subordinati assunti DOPO il 7 marzo 2015</button>
+        <button class="option" data-answer="2">A partire DAL 7 marzo 2015, a tutti i lavoratori subordinati</button>
+    </div>
+</div>
+<!-- Question Block 2.33 -->
+<div class="question-block" data-correct="0">
+    <div class="question">2.33 Il principio di onnicomprensività retributiva:</div>
+    <div class="options">
+        <button class="option" data-answer="0">È applicato quando una norma di legge o di contratto collettivo lo richiami come criterio di calcolo</button>
+        <button class="option" data-answer="1">Trova sempre applicazione per il calcolo degli istituti retributivi cd. indiretti</button>
+        <button class="option" data-answer="2">Non è più applicato, neppure come criterio</button>
+    </div>
+</div>
+<!-- Question Block 2.34 -->
+<div class="question-block" data-correct="2">
+    <div class="question">2.34 Il vincolo di orario:</div>
+    <div class="options">
+        <button class="option" data-answer="0">È un indice indefettibile di subordinazione</button>
+        <button class="option" data-answer="1">È indice solo di parasubordinazione</button>
+        <button class="option" data-answer="2">È indice secondario di subordinazione</button>
+    </div>
+</div>
+<!-- Question Block 2.35 -->
+<div class="question-block" data-correct="2">
+    <div class="question">2.35 Il rinnovo di un contratto a termine che complessivamente non supera i 12 mesi di durata:</div>
+    <div class="options">
+        <button class="option" data-answer="0">È ammesso solo per attività di carattere stagionale</button>
+        <button class="option" data-answer="1">È ammesso ma penalizzato con una maggiorazione retributiva</button>
+        <button class="option" data-answer="2">È ammesso, ma con l’indicazione della causale</button>
+    </div>
+</div>
+<!-- Question Block 2.36 -->
+<div class="question-block" data-correct="1">
+    <div class="question">2.36 Le informazioni lecitamente raccolte dal datore nell’esercizio del potere di controllo sono utilizzabili a condizione che:</div>
+    <div class="options">
+        <button class="option" data-answer="0">Sia data adeguata informazione al lavoratore sulle modalità d'uso degli strumenti e di effettuazione dei controlli</button>
+        <button class="option" data-answer="1">Sia data adeguata informazione al lavoratore sull’uso degli strumenti di effettuazione dei controlli, nel rispetto di quanto previsto dalla normativa sulla privacy.</button>
+        <button class="option" data-answer="2">Si consulti il sindacato</button>
+    </div>
+</div>
+<!-- Question Block 2.37 -->
+<div class="question-block" data-correct="1">
+    <div class="question">2.37 Le assunzioni successive a tempo determinato</div>
+    <div class="options">
+        <button class="option" data-answer="0">Sono consentite ma esigono la parità di mansioni</button>
+        <button class="option" data-answer="1">Sono consentite nel rispetto di determinati intervalli tra una stipulazione e l'altra (e il rispetto delle causali)</button>
+        <button class="option" data-answer="2">Sono consentire ma solo se il contratto a termine non è mai stato prorogato</button>
+    </div>
+</div>
+<!-- Question Block 2.38 -->
+<div class="question-block" data-correct="2">
+    <div class="question">2.38 La tutela indennitaria (da 12 a 24 mensilità), sostitutiva della tutela reintegratoria, è prevista dall'art. 18 (come modificato dalla Riforma Fornero):</div>
+    <div class="options">
+        <button class="option" data-answer="0">Quando il licenziamento è illegittimo, ma il fatto materiale dell'inadempimento del lavoratore sussiste e il contratto collettivo non lo prevede</button>
+        <button class="option" data-answer="1">Quando vi siano solo vizi di forma</button>
+        <button class="option" data-answer="2">Quando il lavoratore abbia esercitato la relativa "opzione"</button>
+    </div>
+</div>
+
+        </div>
+        <div id="result"></div>
+    </div>
+    <script>
+        const quiz = document.getElementById('quiz');
+        const result = document.getElementById('result');
+        const shuffleBtn = document.getElementById('shuffleBtn');
+
+        function checkAnswer(event) {
+            const selectedOption = event.target;
+            const questionBlock = selectedOption.closest('.question-block');
+            const correctAnswer = questionBlock.dataset.correct;
+
+            if (selectedOption.dataset.answer === correctAnswer) {
+                selectedOption.classList.add('correct');
+                // Disable all options after selection
+                const options = questionBlock.querySelectorAll('.option');
+                options.forEach(option => option.disabled = true);
+            } else {
+                selectedOption.classList.add('wrong');
+                // Allow the user to try again
+                selectedOption.disabled = true;
+            }
+        }
+
+        function resetQuiz() {
+    document.querySelectorAll('.option').forEach(option => {
+        option.classList.remove('correct', 'wrong');
+        option.disabled = false;
+    });
+}
+
+function shuffleQuestions() {
+    resetQuiz();  // Reset the quiz before shuffling
+    for (let i = quiz.children.length; i >= 0; i--) {
+        quiz.appendChild(quiz.children[Math.random() * i | 0]);
+    }
+}
+
+
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', checkAnswer);
+        });
+
+        shuffleBtn.addEventListener('click', shuffleQuestions);
+    </script>
+</body>
+</html>
